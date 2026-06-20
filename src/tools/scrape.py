@@ -4,7 +4,7 @@ import requests
 from pydantic import BaseModel,Field
 
 load_dotenv()
-
+api_key= os.environ['API_KEY']
 # {"job_id": "XzfsIYq11GiPnTbuAAAAAA==", "job_title": "Junior Front End Developer", "job_apply_link": "https://www.simplyhired.co.in/job/u_HWaNDqbjBIvTt9X8NK0gWP4iNEAZOEc14utPH_rvrPyHA9pMoeSQ"}
 
 class jobs(BaseModel):
@@ -17,7 +17,8 @@ class StructuredOutput(BaseModel):
 
 def scrape(jobRole:str,location:str):
   headers = {
-  "X-API-Key": "ak_k5ie7doodrxmofkfjgvsvwuftb6gq5altxs2pwee9i3m0dz"
+  "X-API-Key": api_key
+
   }
 
   response = requests.request(
