@@ -77,7 +77,7 @@ class Validator:
     if salary is None:
       return False,"Salary cannot be empty"
 
-    if type(salary) != float:
+    if type(salary) != float :
       return False,"Salary can only contain numerical values"
     
     return True,salary
@@ -126,4 +126,7 @@ def put(name,email,pwd,jobRole,experience,location,salary):
   return "Done"
 
 def fetch():
-  pass
+  query = "SELECT * FROM USER_DETAILS"
+  cursor.execute(query)
+  user_details = cursor.fetchall()
+  return user_details

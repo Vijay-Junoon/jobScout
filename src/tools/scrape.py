@@ -4,8 +4,7 @@ import requests
 from pydantic import BaseModel,Field
 
 load_dotenv()
-api_key= os.environ['API_KEY']
-# {"job_id": "XzfsIYq11GiPnTbuAAAAAA==", "job_title": "Junior Front End Developer", "job_apply_link": "https://www.simplyhired.co.in/job/u_HWaNDqbjBIvTt9X8NK0gWP4iNEAZOEc14utPH_rvrPyHA9pMoeSQ"}
+api_key= os.environ['X-API-Key']
 
 class jobs(BaseModel):
   job_title: str = Field("Name of the job")
@@ -15,10 +14,18 @@ class StructuredOutput(BaseModel):
   jobs:list[jobs]
 
 
-def scrape(jobRole:str,location:str):
+def scrape(name: str,emaiL: str,jobRole:str,exp: int,location:str,salary:float):
+  
+  requirement = ""
+  if exp == 0:
+    requirement = "no_experience"
+  elif exp < 3:
+    requirement = "under_3_years_experience"
+  elif exp >= 3:
+    requirement = "more_than_3_years_experience"
+
   headers = {
   "X-API-Key": api_key
-
   }
 
   response = requests.request(
@@ -27,11 +34,11 @@ def scrape(jobRole:str,location:str):
       params={
         'query':f'{jobRole} opportunities in {location}',
         'country' : "in",
-        'date_posted': 'today',
-        'fields':( "employer_name","job_publisher","job_title","job_country",'job_apply_link')
+        'date_posted': '3days',
+        'job_requirements': requirement,
+        'fields':"employer_name,job_publisher,job_title,job_employment_type,job_city,job_apply_link"
       },
       headers=headers
   )
-
   return response.json()['data']['jobs'][:4]
 
