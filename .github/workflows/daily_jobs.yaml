@@ -26,6 +26,6 @@ jobs:
         env:
           X_API_Key: ${{secrets.X_API_Key}}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          gmail_password: ${{ secrets.gmail-password }}
+          gmail_password: ${{ secrets.gmail_password }}
         run: |
           python src/scheduler.py
