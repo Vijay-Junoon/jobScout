@@ -2,7 +2,7 @@ name: Send Job Alerts
 
 on:
   schedule:
-    - cron: "2 9 * * *"
+    - cron: 57 2 * * *
   workflow_dispatch:
 
 jobs:
