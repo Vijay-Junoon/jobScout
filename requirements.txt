@@ -3,3 +3,5 @@ langgraph
 dotenv
 psycopg2-binary
 streamlit
+streamlit
+python-dotenv
