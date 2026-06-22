@@ -9,6 +9,7 @@ JobScout automates the job search process by collecting job opportunities, filte
 ## 📌 Features
 
 ### 👤 User Management
+
 - User registration and profile creation
 - Stores user preferences such as:
   - Job role
@@ -18,22 +19,26 @@ JobScout automates the job search process by collecting job opportunities, filte
 - Secure credential handling
 
 ### 🔍 Smart Job Discovery
+
 - Searches and collects job opportunities
 - Filters jobs based on user profile
 - Matches users with relevant openings
 
 ### 📧 Email Notifications
+
 - Automated email alerts for new job opportunities
 - HTML-based email templates
 - Embedded banner images using CID attachments
 - Personalized job recommendations
 
 ### 🗄️ Database Management
+
 - Stores user details
 - Maintains job information
 - Tracks user preferences and notifications
 
 ### ⚙️ Automation Workflow
+
 - Automated background processing
 - Periodic job fetching and matching
 - Notification generation
