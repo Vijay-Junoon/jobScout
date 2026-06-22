@@ -4,7 +4,7 @@ import requests
 from pydantic import BaseModel,Field
 
 load_dotenv()
-api_key= os.environ['X-API-Key']
+api_key= os.environ['X_API_Key']
 
 class jobs(BaseModel):
   job_title: str = Field("Name of the job")

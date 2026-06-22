@@ -6,7 +6,7 @@ from email.utils import make_msgid
 
 load_dotenv()
 
-gmail_password = os.environ['gmail-password']
+gmail_password = os.environ['gmail_password']
 
 mail_sender = smtplib.SMTP('smtp.gmail.com', 587)
 mail_sender.starttls()
