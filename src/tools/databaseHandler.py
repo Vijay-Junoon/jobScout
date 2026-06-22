@@ -1,7 +1,7 @@
 import psycopg2
 import re
-
-conn = psycopg2.connect("dbname=JobScout user=postgres password=Lucifer545@")
+import os
+conn = psycopg2.connect(os.getenv("DATABASE_URL"))
 cursor = conn.cursor()
 print("Connection established!")
 
@@ -130,3 +130,5 @@ def fetch():
   cursor.execute(query)
   user_details = cursor.fetchall()
   return user_details
+
+create_table()
